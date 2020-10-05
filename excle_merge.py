@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+
 pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1000)
@@ -41,6 +43,11 @@ def main():
     # print(df_connect_file)
     df_merge_file = file_merge(df_connect_file, df_buy, df_sell)
     print(df_merge_file)
+
+    # wyświetlanie wizualizacji wykresu
+    df_merge_file.plot.bar(x='Owoc', y=[
+        'cena_zakupu', 'cena_sprzedaży'], rot=0)
+    plt.show()
 
 
 if __name__ == "__main__":
